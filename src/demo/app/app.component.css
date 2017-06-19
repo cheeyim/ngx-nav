@@ -2,6 +2,12 @@ body {
   font-family: Open Sans, sans-serif;
 }
 
+a {
+  cursor: pointer;
+  text-decoration: none;
+  transition: none 86ms ease-out;
+}
+
 .page {
   display: flex;
   flex-direction: column;
@@ -49,7 +55,7 @@ body {
   padding: 20px 40px;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 769px) {
   .page-sidebar {
     display: none;
   }

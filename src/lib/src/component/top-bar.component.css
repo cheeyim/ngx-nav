@@ -1,85 +1,96 @@
 .nav {
-    background: rgba(33, 117, 217, 1);
-    padding: 0;
-    display: flex;
-    height: 3.25rem;
-    position: relative;
-    text-align: center;
-    z-index: 10;
-    align-items: stretch;
+  background: rgba(33, 117, 217, 1);
+  padding: 0;
+  display: flex;
+  height: 3.25rem;
+  position: relative;
+  text-align: center;
+  z-index: 10;
+  align-items: stretch;
 }
 
 .nav-left {
-    justify-content: flex-start;
-    white-space: nowrap;
+  justify-content: flex-start;
+  white-space: nowrap;
 }
 
 .nav-right {
-    justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .nav-left,
 .nav-right {
-    align-items: stretch;
-    display: flex;
-    flex-grow: 1;
-    flex-shrink: 0;
-    max-width: 100%;
-    overflow: auto;
+  align-items: stretch;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  max-width: 100%;
+  overflow: auto;
 }
 
 .nav img {
-    height: 18px;
+  height: 18px;
 }
 
 .nav a.nav-item {
-    color: #fff;
-    font-size: 12px;
+  color: #fff;
+  font-size: 12px;
 }
 
 .nav a.nav-item span {
-    display: inline-block;
-    padding: 0 5px;
+  display: inline-block;
+  padding: 0 5px;
 }
 
 .nav a.nav-item:hover {
-    background-color: #4a90e3;
+  background-color: #4a90e3;
 }
 
 .nav .nav-toggle {
-    cursor: pointer;
-    color: #fff;
-    padding: 12px 15px;
-    font-size: 21px;
-    height: 3.25rem;
-    position: relative;
-    width: 3.25rem;
+  cursor: pointer;
+  color: #fff;
+  padding: 12px 15px;
+  font-size: 21px;
+  position: relative;
 }
 
 .nav .nav-toggle:hover {
-    background: #4a90e3;
+  background: #4a90e3;
 }
 
 .nav-item {
-    align-items: center;
-    display: flex;
-    flex-grow: 0;
-    flex-shrink: 0;
-    justify-content: center;
-    line-height: 1.5;
-    padding: 0.5rem 0.75rem;
+  align-items: center;
+  display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
+  justify-content: center;
+  line-height: 1.5;
+  padding: 0.5rem 0.75rem;
 }
 
-@media (min-width: 992px) {
-    .nav {
-        padding: 0 10px;
-    }
+@media (min-width: 769px) {
+  .nav {
+    padding: 0 10px;
+  }
 
-    .nav-toggle {
-        display: none;
-    }
+  .nav-toggle {
+    display: none;
+  }
 
-    .nav-left, .nav-right {
-        flex-basis: 0;
-    }
+  .nav-left,
+  .nav-right {
+    flex-basis: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-menu.nav-right {
+    background-color: #fff;
+    box-shadow: 0 4px 7px hsla(0, 0%, 4%, .1);
+    left: 0;
+    display: none;
+    right: 0;
+    top: 100%;
+    position: absolute;
+  }
 }
