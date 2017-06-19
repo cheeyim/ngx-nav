@@ -1,2 +1,17 @@
 <my-lib></my-lib>
 <h3>Meaning is: {{meaning}}</h3>
+
+<nav-top-bar
+    [isMobileSidebarExpanded]="isMobileSidebarExpanded" 
+    (mobileSidebarToggled)="toggleMobileSidebarExpanded($event)"
+    [list]="topBarList"
+    (menuItemClicked)="handleMenuItemClick($event)">
+</nav-top-bar>
+
+<nav-sidebar *ngIf="menuList" 
+    [menuList]="menuList" [isSidebarMinimized]="isSidebarMinimized" 
+    [isMobileSidebarExpanded]="isMobileSidebarExpanded" 
+    (sideBarToggled)="toggleSidebar($event)" 
+    (menuItemClicked)="handleMenuItemClick($event)" 
+    (mobileSidebarToggled)="toggleMobileSidebarExpanded($event)">
+</nav-sidebar>

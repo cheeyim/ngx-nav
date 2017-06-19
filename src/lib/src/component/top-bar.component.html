@@ -1,0 +1,24 @@
+<div class="nav">
+    <div class="nav-left">
+        <div class="nav-item">
+            <a href="/">
+                <img class="logo" src="http://versastudio.com/files/blog/branding-fedex-logo.png"/>
+            </a>
+        </div>
+    </div>
+    <div class="nav-toggle" (click)="toggleExpanded()">
+        <i class="fa" 
+            [class.fa-bars]="!isMobileSidebarExpanded" 
+            [class.fa-times]="isMobileSidebarExpanded">
+        </i>
+    </div>
+    <div class="nav-right nav-menu">
+        <a class="nav-item" 
+            *ngFor="let item of list" 
+            (click)="item.emit ? emitMenuItemClick(item.emit): ''" 
+            href="javascript:void(0)"> 
+            <i class="fa" *ngIf="item.icon" [ngClass]="'fa-'+ item.icon"></i>
+            <span>{{ item.name }}</span>
+        </a>
+    </div>
+</div>

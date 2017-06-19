@@ -1,0 +1,32 @@
+<nav class="sidebar" [class.minimized]="isSidebarMinimized" [class.mobile-expanded]="isMobileSidebarExpanded">
+    <div class="toggle">
+        <span (click)="toggleSidebar()">
+            <i class="fa" 
+                [class.fa-angle-right]="isSidebarMinimized" 
+                [class.fa-angle-left]="!isSidebarMinimized">
+            </i>
+        </span>
+    </div>
+    <div *ngFor="let section of menuList">
+        <ul>
+            <li *ngFor="let menuItem of section; let menuItemIdx = index;">
+                <a *ngIf="menuItem.url &amp;&amp; !menuItem.ng1Prefix" [routerLink]="menuItem.url || '#'" (click)="toggleMobileSidebar()"
+                    routerLinkActive="active"><i class="fa fa-{{ menuItem.icon }}"> </i><span>{{ menuItem.name }}</span><i class="fa fa-angle-down right" *ngIf="menuItem.subs"></i></a>
+                <a *ngIf="menuItem.url &amp;&amp; menuItem.ng1Prefix" [href]="menuItem.ng1Prefix + menuItem.url" routerLinkActive="active"><i class="fa fa-{{ menuItem.icon }}"> </i><span>{{ menuItem.name }}</span><i class="fa fa-angle-down right" *ngIf="menuItem.subs"></i></a>
+                <a *ngIf="menuItem.emit" (click)="emitMenuItemClick(menuItem.emit); toggleMobileSidebar();" href="javascript:void(0)"><i class="fa fa-{{ menuItem.icon }}"> </i><span>{{ menuItem.name }}</span><i class="fa fa-angle-down right" *ngIf="menuItem.subs"></i></a>
+                <a *ngIf="!menuItem.url &amp;&amp; !menuItem.emit" (click)="menuItem.vuiShowSub = !menuItem.vuiShowSub"><i class="fa fa-{{ menuItem.icon }}"> </i><span>{{ menuItem.name }}</span><i class="fa right" *ngIf="menuItem.subs"
+                [class.fa-angle-up]="menuItem.vuiShowSub" [class.fa-angle-right]="!menuItem.vuiShowSub"></i></a>
+
+                <ul *ngIf="menuItem.subs &amp;&amp; menuItem.vuiShowSub">
+                    <li *ngFor="let subMenuItem of menuItem.subs"><a *ngIf="subMenuItem.url &amp;&amp; !subMenuItem.ng1Prefix" [routerLink]="subMenuItem.url || '#'" (click)="toggleMobileSidebar()"
+                            routerLinkActive="active"><i class="fa fa-{{ subMenuItem.icon }}"> </i><span>{{ subMenuItem.name }}</span></a>
+                        <a *ngIf="subMenuItem.url &amp;&amp; subMenuItem.ng1Prefix" [href]="subMenuItem.ng1Prefix + subMenuItem.url" routerLinkActive="active"><i class="fa fa-{{ subMenuItem.icon }}"> </i><span>{{ subMenuItem.name }}</span></a>
+                        <a
+                            *ngIf="subMenuItem.emit" (click)="emitMenuItemClick(subMenuItem.emit); toggleMobileSidebar();" href="javascript:void(0)"><i class="fa fa-{{ subMenuItem.icon }}"> </i><span>{{ subMenuItem.name }}</span></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <hr/>
+    </div>
+</nav>
