@@ -1,17 +1,30 @@
 <my-lib></my-lib>
 <h3>Meaning is: {{meaning}}</h3>
 
-<nav-top-bar
-    [isMobileSidebarExpanded]="isMobileSidebarExpanded" 
-    (mobileSidebarToggled)="toggleMobileSidebarExpanded($event)"
-    [list]="topBarList"
-    (menuItemClicked)="handleMenuItemClick($event)">
-</nav-top-bar>
 
-<nav-sidebar *ngIf="menuList" 
-    [menuList]="menuList" [isSidebarMinimized]="isSidebarMinimized" 
-    [isMobileSidebarExpanded]="isMobileSidebarExpanded" 
-    (sideBarToggled)="toggleSidebar($event)" 
-    (menuItemClicked)="handleMenuItemClick($event)" 
-    (mobileSidebarToggled)="toggleMobileSidebarExpanded($event)">
-</nav-sidebar>
+
+
+<div class="page">
+  <div class="page-header">
+    <nav-top-bar
+        [isMobileSidebarExpanded]="isMobileSidebarExpanded" 
+        (mobileSidebarToggled)="toggleMobileSidebarExpanded($event)"
+        [list]="topBarList"
+        (menuItemClicked)="handleMenuItemClick($event)">
+    </nav-top-bar>
+  </div>
+  <div class="page-content">
+    <aside class="page-sidebar" [class.minimized]="isSidebarMinimized" [class.mobile-expanded]="isMobileSidebarExpanded">
+        <nav-sidebar *ngIf="menuList" 
+            [menuList]="menuList" [isSidebarMinimized]="isSidebarMinimized" 
+            [isMobileSidebarExpanded]="isMobileSidebarExpanded" 
+            (sideBarToggled)="toggleSidebar($event)" 
+            (menuItemClicked)="handleMenuItemClick($event)" 
+            (mobileSidebarToggled)="toggleMobileSidebarExpanded($event)">
+        </nav-sidebar>
+    </aside>
+    <main class="page-main" [class.mobile-expanded]="isMobileSidebarExpanded">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

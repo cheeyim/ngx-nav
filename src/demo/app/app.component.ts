@@ -4,9 +4,7 @@ import { LibService } from 'ngx-nav';
 @Component({
   selector: 'demo-app',
   templateUrl: './app.component.html',
-  styles: [
-    'body { font-family: Open Sans, sans-serif; }'
-  ]
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   // meaning: number;
@@ -33,11 +31,11 @@ export class AppComponent {
       },
       {
         'name': 'bookings', 'icon': 'bookmark', 'url': '/bookings',
-        'permissions': [2], 'priority': 2, 'ng1Prefix': ''
+        'permissions': [2], 'priority': 2, 'ng1Prefix': '/#'
       },
       {
         'name': 'documents', 'icon': 'file-text', 'url': '/documents',
-        'permissions': [2], 'priority': 4
+        'permissions': [2], 'priority': 4, 'ng1Prefix': '/#'
       },
       {
         'name': 'availability', 'icon': 'calendar', 'url': '/availability',
@@ -47,10 +45,10 @@ export class AppComponent {
     [
       {
         'name': 'settings', 'icon': 'gear', 'permissions': [1], 'priority': 0, 'subs':
-        [{ 'name': 'profile', 'icon': 'user', 'url': '/settings/profile', 'ng1Prefix': '' },
-        { 'name': 'notifications', 'icon': 'bell', 'url': '/settings/notifications', 'ng1Prefix': '' },
-        { 'name': 'change password', 'icon': 'get-pocket', 'url': '/settings/password', 'ng1Prefix': '' },
-        { 'name': 'social login', 'icon': 'facebook', 'url': '/settings/social', 'ng1Prefix': '' }]
+        [{ 'name': 'profile', 'icon': 'user', 'url': '/settings/profile', 'ng1Prefix': '/#' },
+        { 'name': 'notifications', 'icon': 'bell', 'url': '/settings/notifications', 'ng1Prefix': '/#' },
+        { 'name': 'change password', 'icon': 'get-pocket', 'url': '/settings/password', 'ng1Prefix': '/#' },
+        { 'name': 'social login', 'icon': 'facebook', 'url': '/settings/social', 'ng1Prefix': '/#' }]
       },
       { 'name': 'help & support', 'icon': 'question-circle', 'priority': 1, 'emit': 'support', 'permissions': [1] }
     ],
