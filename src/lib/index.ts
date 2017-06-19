@@ -1,3 +1,3 @@
-export { LibComponent } from './src/component/lib.component';
-export { LibService } from './src/service/lib.service';
-export { LibModule } from './src/module';
+export { SidebarComponent } from './src/component/sidebar.component';
+export { TopBarComponent } from './src/component/top-bar.component';
+export { NavModule } from './src/module';

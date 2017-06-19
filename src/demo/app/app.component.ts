@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { LibService } from 'ngx-nav';
 
 @Component({
   selector: 'demo-app',
@@ -57,8 +56,7 @@ export class AppComponent {
     ]
   ];
 
-  constructor(libService: LibService) {
-    // this.meaning = libService.getMeaning();
+  constructor() {
   }
 
   toggleSidebar(isMinimized: boolean) {

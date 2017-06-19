@@ -2,14 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
-import { LibComponent } from './component/lib.component';
 import { TopBarComponent } from './component/top-bar.component';
 import { SidebarComponent } from './component/sidebar.component';
-import { LibService } from './service/lib.service';
 
 @NgModule({
   declarations: [
-    LibComponent,
     TopBarComponent,
     SidebarComponent,
   ],
@@ -17,11 +14,10 @@ import { LibService } from './service/lib.service';
     CommonModule,
     RouterModule,
   ],
-  providers: [LibService],
+  providers: [],
   exports: [
-    LibComponent,
     TopBarComponent,
     SidebarComponent
   ]
 })
-export class LibModule { }
+export class NavModule { }
